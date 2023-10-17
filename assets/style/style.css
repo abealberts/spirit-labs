@@ -1,0 +1,7 @@
+.navbar-item img {
+    max-height: fit-content;
+}
+
+.navbar{
+    box-shadow: 0px 4px 4px rgba(64, 172, 255, 0.156);
+}
