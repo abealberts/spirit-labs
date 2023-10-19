@@ -10,7 +10,18 @@ async function searchDrinks(){
     resultsArr = data.drinks;
     
     console.log(resultsArr);
+    dotd();
 }
+
+function dotd(){
+
+    $("#dotdName").text(resultsArr[2].strDrink);
+    $("#dotdImage").attr("src", resultsArr[2].strDrinkThumb);
+    $("#dotdLiquor").text(resultsArr[2].strIngredient1);
+    $("#dotdFlavor").text(resultsArr[2].strIngredient2);
+
+    console.log(resultsArr[0].strDrinkThumb);
+};
 
 searchDrinks();
 
