@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Spirit Labs</title>
-  <link rel="stylesheet" href="./assets/style/reset.css">
+  <!-- <link rel="stylesheet" href="./assets/style/reset.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/style/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -74,7 +74,7 @@
 
             <div class="columns">
               <div class="column is-4">
-                <img src="assets/images/sl-logo-v1.svg" class="is-vcentered pt" alt="Drink of the day img">
+                <img src="assets/images/sl-logo-v1.svg" class="is-vcentered pt" alt="Drink of the day img" id="dotdImage">
               </div>
               <div class="column">
                 <h2 class="title is-6">Liquor:</h2>
@@ -96,13 +96,16 @@
             <h3 class="is-size-5">Advanced Search:</h3>
             <div>
               <h2 class="label mt-4" id="searchAlcoholic">Alcoholic?</h2>
-              <div class="select">
-                <select>
-                  <option>Yes</option>
-                  <option>No</option>
-                </select>
+              <div class="control">
+                <label class="radio">
+                  <input type="radio" name="answer">
+                  Yes
+                </label>
+                <label class="radio">
+                  <input type="radio" name="answer">
+                  No
+                </label>
               </div>
-            </div>
 
             <div>
               <h2 class="label mt-2" id="searchLiquor">Liquor:</h2>
