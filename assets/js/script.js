@@ -5,23 +5,22 @@ var randomArr = [];
 
 //requestUrl changed -- add onto requestUrl in API calls
 async function searchDrinks(){
-    const response = await fetch(requestUrl)
+    const response = await fetch(requestUrl + "&f=a")
     var data = await response.json();
 
     resultsArr = data.drinks;
     
     console.log(resultsArr);
     dotd();
-    
 }
 
 async function getRandomDrink(){
-    const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/randomselection.php")
+    const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php")
     var data = await response.json();
 
     randomArr = data.drinks;
 
-    console.log(randomArr);
+    console.log(data);
 
 }
 
@@ -35,7 +34,8 @@ function dotd(){
     console.log(resultsArr[0].strDrinkThumb);
 };
 
-$("randomButton").click(function(){
+$("#randButton").click(async function(){
+    await getRandomDrink();
     var rand = Math.floor(Math.random() * 9);
    $("#randomImage").attr("src", randomArr[rand].strDrinkThumb);
    $("#randomLiquor").text(randomArr[rand].strIngredient1);
