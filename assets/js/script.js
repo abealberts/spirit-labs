@@ -1,9 +1,9 @@
 const apiKey = "9973533"
-const requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?appid=9973533&f=a';
+const requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?appid=9973533';
 var resultsArr = [];
 var randomArr = [];
 
-
+//requestUrl changed -- add onto requestUrl in API calls
 async function searchDrinks(){
     const response = await fetch(requestUrl)
     var data = await response.json();
@@ -41,8 +41,7 @@ $("drink").click(function randomCocktail(){
    $("#randomLiquor").text(randomArr[rand].strIngredient1);
    $("#randomFlavor").text(randomArr[rand].strIngredient2);
    console.log(rand);
-})
-
+});
 
 searchDrinks();
 
