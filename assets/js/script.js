@@ -16,7 +16,7 @@ async function searchDrinks(){
 }
 
 async function getRandomDrink(){
-    const response = await fetch
+    const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/randomselection.php")
     var data = await response.json();
 
     randomArr = data.drinks;
@@ -36,7 +36,7 @@ function dotd(){
 };
 
 $("drink").click(function randomCocktail(){
-    var rand = Math.floor(Math.random() * 24);
+    var rand = Math.floor(Math.random() * 9);
    $("#randomImage").attr("src", randomArr[rand].strDrinkThumb);
    $("#randomLiquor").text(randomArr[rand].strIngredient1);
    $("#randomFlavor").text(randomArr[rand].strIngredient2);
