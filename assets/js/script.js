@@ -1,6 +1,7 @@
 const apiKey = "9973533"
 const requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?appid=9973533&f=a';
 var resultsArr = [];
+var randomArr = [];
 
 
 async function searchDrinks(){
@@ -12,6 +13,16 @@ async function searchDrinks(){
     console.log(resultsArr);
     dotd();
     
+}
+
+async function getRandomDrink(){
+    const response = await fetch
+    var data = await response.json();
+
+    randomArr = data.drinks;
+
+    console.log(randomArr);
+
 }
 
 function dotd(){
@@ -26,7 +37,9 @@ function dotd(){
 
 $("drink").click(function randomCocktail(){
     var rand = Math.floor(Math.random() * 24);
-   $("#randomimage").attr("src", resultsArr[rand].strDrinkThumb);
+   $("#randomImage").attr("src", randomArr[rand].strDrinkThumb);
+   $("#randomLiquor").text(randomArr[rand].strIngredient1);
+   $("#randomFlavor").text(randomArr[rand].strIngredient2);
    console.log(rand);
 })
 
