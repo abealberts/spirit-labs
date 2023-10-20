@@ -24,12 +24,11 @@ function dotd(){
     console.log(resultsArr[0].strDrinkThumb);
 };
 
-$("drink").click(function randomCocktail(){
+$("randButton").click(function randomCocktail(){
     var rand = Math.floor(Math.random() * 24);
    $("#randomimage").attr("src", resultsArr[rand].strDrinkThumb);
    console.log(rand);
 })
-
 
 searchDrinks();
 
