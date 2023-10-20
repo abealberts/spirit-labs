@@ -11,6 +11,7 @@ async function searchDrinks(){
     
     console.log(resultsArr);
     dotd();
+    
 }
 
 function dotd(){
@@ -23,15 +24,12 @@ function dotd(){
     console.log(resultsArr[0].strDrinkThumb);
 };
 
-<<<<<<< Updated upstream
-=======
 $("#randButton").click(function(){
     var rand = Math.floor(Math.random() * 24);
-   $("#randomimage").attr("src", resultsArr[rand].strDrinkThumb);
+   $("#randomImage").attr("src", resultsArr[rand].strDrinkThumb);
    console.log(rand);
 });
 
->>>>>>> Stashed changes
 searchDrinks();
 
 //SOME PSUEDO CODE FOR SEARCH FUNCTIONALITY
