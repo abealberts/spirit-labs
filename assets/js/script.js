@@ -35,7 +35,7 @@ function dotd(){
     console.log(resultsArr[0].strDrinkThumb);
 };
 
-$("drink").click(function randomCocktail(){
+$("randomButton").click(function(){
     var rand = Math.floor(Math.random() * 9);
    $("#randomImage").attr("src", randomArr[rand].strDrinkThumb);
    $("#randomLiquor").text(randomArr[rand].strIngredient1);
