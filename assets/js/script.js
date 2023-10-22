@@ -37,9 +37,11 @@ function dotd(){
 $("#randButton").click(async function(){
     await getRandomDrink();
     var rand = Math.floor(Math.random() * 9);
-   $("#randomImage").attr("src", randomArr[rand].strDrinkThumb);
-   $("#randomLiquor").text(randomArr[rand].strIngredient1);
-   $("#randomFlavor").text(randomArr[rand].strIngredient2);
+   $("#randImage").attr("src", randomArr[rand].strDrinkThumb);
+   $("#randName").text(randomArr[rand].strDrink);
+   $("#randIngredient1").text(randomArr[rand].strIngredient1);
+   $("#randIngredient2").text(randomArr[rand].strIngredient2);
+   $("#randIngredient3").text(randomArr[rand].strIngredient3);
    console.log(rand);
 });
 
@@ -47,7 +49,7 @@ searchDrinks();
 
 //SOME PSUEDO CODE FOR SEARCH FUNCTIONALITY
 // $("#searchButton").click(function(){
-//     Build api link based on each dropdown
+//     Build api link based on each dropdowns
 
 //     endpoint url + searchAlcoholic + Liquor + etc
 
