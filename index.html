@@ -1,179 +1,284 @@
 <!DOCTYPE html>
-
 <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Spirit Labs</title>
+      <!-- <link rel="stylesheet" href="./assets/style/reset.css"> -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+      <link rel="stylesheet" href="./assets/style/style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+      <link rel="icon" href="./assets/images/sl-logo-v1.svg" type="image/x-icon">
+   </head>
+   <body>
+      <main>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Spirit Labs</title>
-  <!-- <link rel="stylesheet" href="./assets/style/reset.css"> -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="./assets/style/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-  <link rel="icon" href="./assets/images/sl-logo-v1.svg" type="image/x-icon">
-</head>
+         <header>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+               <div class="navbar-brand">
+                  <a class="navbar-item" href="https://google.com">
+                  <img src="./assets/images/sl-logo-v1.svg" width="120" height="60">
+                  </a>
+                  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                     data-target="navbarBasicExample">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  </a>
+               </div>
+               <div id="navbarBasicExample" class="navbar-menu">
+                  <div class="navbar-start">
+                     <a class="navbar-item">
+                     Home
+                     </a>
+                     <a class="navbar-item">
+                     About
+                     </a>
+                     <a class="navbar-item">
+                     Favorites
+                     </a>
+                  </div>
+               </div>
+               </div>
+            </nav>
+         </header>
 
-<body>
-  <main>
-    <header>
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://google.com">
-            <img src="./assets/images/sl-logo-v1.svg" width="120" height="60">
-          </a>
+         <section class="section" id="mainSection">
 
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-            data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
+            <!-- MAJOR COLUMNS CONTAINER -->
+            <div class="columns" id="mainColumns">
 
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item">
-              Home
-            </a>
+               <!-- LEFT MAJOR COLUMN -->
+               <div class="column" id="columnLeft">
 
-            <a class="navbar-item">
-              About
-            </a>
+                  <!-- WELCOME -->
+                  <div class="box" id="welcome">
+                    <h2 class="title is-2 has-text-info">Welcome! 👋</h2>
+                    <h2 class="subtitle is-6">MUST BE 21 TO BE HERE BRUH</h2>
+                    <div class="content">
+                      <p>Welcome to Spirit Labs! Search for cocktail recipes using our advanced search below!</p>
+                      <p>Not sure what you're looking for? Try out the drink of the day or let us pick one for you with the random cocktail generator!</p>
+                    </div>
+                  </div>
 
-            <a class="navbar-item">
-              Favorites
-            </a>
-          </div>
-        </div>
-        </div>
-      </nav>
-    </header>
+                  <!-- ADVANCED SEARCH -->
+                  <div class="box" id="advancedSearch">
+                    <h2 class="title is-2 has-text-info">Assemble Your Concoction! 🧪</h2>
+                     
+                  <!-- FORM ITEMS -->
+                    <div id="search">
 
-  </main>
-  <section class="section pb-0">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-6">
-          <div class="box">
-            <div class="is-size-3 title-3">Welcome</div>
-            <div class="is-size-5 subtitle">MUST BE 21 TO BE HERE BRUH</div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi dolorem provident laborum aperiam
-              ducimus vitae, maxime sed eius molestiae, voluptatem aut nostrum culpa aliquid inventore illo nobis,
-              molestias quisquam neque.</p>
-          </div>
-        </div>
+                      <!-- Radio (Alcoholic?) -->
+                      <div class="field" id="searchAlcoholic">
+                        <label class="label">Contains Alcohol?</label>
+                        <div class="control">
+                          <label class="radio">
+                            <input type="radio" name="question">
+                            Yes
+                          </label>
+                          <label class="radio">
+                            <input type="radio" name="question">
+                            No
+                          </label>
+                        </div>
+                      </div>
 
-        <!-- <div class="section is-4"></div> -->
+                      <div class="is-flex is-flex-wrap-wrap is-justify-content-flex-start">
 
-        <div class="column is-6 is-vcentered">
-          <div class="box" id="dotd">
-            <h2 class="title is-2">Drink of the Day</h2>
-            <h2 class="title is-4" id="dotdName">Placeholder Name</h2>
+                        <!-- Liquor Type -->
+                        <div class="field mr-3">
+                          <label class="label">Liquor</label>
+                          <div class="control">
+                            <div class="select">
+                              <select>
+                                <option>Select dropdown</option>
+                                <option>With options</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
 
-            <div class="columns">
-              <div class="column is-4">
-                <img src="assets/images/sl-logo-v1.svg" class="is-vcentered pt" alt="Drink of the day img" id="dotdImage">
-              </div>
-              <div class="column">
-                <h2 class="title is-6">Liquor:</h2>
-                <h2 class="subtitle is-6" id="dotdLiquor">Placeholder Booze</h2>
-                <h2 class="title is-6">Flavor:</h2>
-                <h2 class="subtitle is-6" id="dotdFlavor">Placeholder Flavor</h2>
+                          <!-- Ingredient 1 -->
+                          <div class="field">
+                            <label class="label">Type</label>
+                            <div class="control">
+                              <div class="select">
+                                <select>
+                                  <option>Select dropdown</option>
+                                  <option>With options</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                      </div>
+
+                      <div class="is-flex is-flex-wrap-wrap is-justify-content-flex-start">
+
+                        <!-- Ingredient 2 -->
+                        <div class="field mr-3">
+                          <label class="label">Ingredient</label>
+                          <div class="control">
+                            <div class="select">
+                              <select>
+                                <option>Select dropdown</option>
+                                <option>With options</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Drink Type -->
+                        <div class="field">
+                          <label class="label">Ingredient</label>
+                          <div class="control">
+                            <div class="select">
+                              <select>
+                                <option>Select dropdown</option>
+                                <option>With options</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <!-- Search Button -->
+                      <div class="field">
+                        <div class="control">
+                          <button class="button has-background-info has-text-white is-fullwidth">Serve Drinks</button>
+                        </div>
+                      </div>
+
+                    </div>
+                    <h2 class="title is-4 has-text-info mt-3" id="results">Results:</h2>
+                    <div class="box clickable is-flex">
+                      <figure class="image is-64x64 mr-4">
+                        <img class="is-halfround" id="randImage" src="https://bulma.io/images/placeholders/64x64.png" alt="Image Alt">
+                     </figure>
+                     <div>
+                      <h2 class="title is-4 has-text-info">Results placeholder</h2>
+                      <h2 class="subtitle is-6">Description, ingredients, or whatever we want to display here</h2>
+                     </div>
+                    </div>
+                  </div>
+                </div>
+
+               <!-- RIGHT MAJOR COLUMN -->
+               <div class="column is-narrow" id="columnRight">
+                
+                  <!-- DRINK OF THE DAY -->
+                  <div class="box" id="dotd">
+                    <h2 class="title is-2 has-text-info">Drink of the Day 🍸</h2>
+                    <h2 class="subtitle is-6">TODAY WE'RE SERVING UP:</h2>
+
+                      <!-- DRINK CARD -->
+                      <div class="box">
+                        <h2 class="title is-4 has-text-info" id="dotdName"></h2>
+                        <div class="columns is-mobile">
+                            <div class="column is-narrow">
+                              <figure class="image is-128x128">
+                                  <img class="is-halfround" id="dotdImage" src="./assets/images/sl-logo-v1.svg" alt="Image Alt">
+                              </figure>
+                            </div>
+                            <div class="column">
+                              <h2 class="label">Ingredients:</h2>
+                              <ul>
+                                  <li id="dotdLiquor"></li>
+                                  <li id="dotdFlavor"></li>
+                                  <li id="dotdIngredient3"></li>
+                              </ul>
+                              <br>
+                              <a href="" id="dotdRecipe">Click here for full recipe😉</a>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <!-- RANDOM DRINK GENERATOR -->
+                  <div class="box">
+                    <h2 class="title is-2 has-text-info">Feeling Lucky? 🎲</h2>
+                    <h2 class="subtitle is-6">RANDOM COCKTAIL GENERATOR:</h2>
+                     <div class="content">
+                        <button class="button is-fullwidth has-background-info has-text-white" id="randButton">Quench my thirst!</button>
+                     </div>
+
+                     <!-- DRINK CARD -->
+                     <div class="box">
+                        <h2 class="title is-4 has-text-info" id="randName"></h2>
+                        <div class="columns is-mobile">
+                           <div class="column is-narrow">
+                              <figure class="image is-128x128">
+                                 <img class="is-halfround" id="randImage" src="./assets/images/sl-logo-v1.svg" alt="Image Alt">
+                              </figure>
+                           </div>
+                           <div class="column">
+                              <h2 class="label">Ingredients:</h2>
+                              <ul>
+                                 <li id="randIngredient1"></li>
+                                 <li id="randIngredient2"></li>
+                                 <li id="randIngredient3"></li>
+                              </ul>
+                              <br>
+                              <a href="">View Recipe</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Favorites -->
+                  <div class="box">
+                    <h2 class="title is-2 has-text-info">Favorites ⭐</h2>
+                    <h2 class="subtitle is-6">SAVED DRINKS WILL APPEAR HERE:</h2>
+
+                    <!-- Favorite Card(s) -->
+                    <div class="box">
+                      <h2 class="title is-4 has-text-info favName">Favorites:</h2>
+                      <div class="columns is-mobile">
+                          <div class="column is-narrow">
+                            <figure class="image is-64x64">
+                                <img class="is-halfround favImage" src="https://bulma.io/images/placeholders/128x128.png" alt="Image Alt">
+                            </figure>
+                          </div>
+                          <div class="column">
+                            <h2 class="label favIngredients">Ingredients:</h2>
+                            <ul>
+                                <li class="favIngredient1">Ingredient 1</li>
+                                <li class="favIngredient2">Ingredient 2</li>
+                            </ul>
+                            <br>
+                            <a href="">View Recipe</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Drink Card Demo -->
+                  <div class="box">
+                     <h2 class="title is-4 has-text-info">Placeholder Name</h2>
+                     <div class="columns">
+                        <div class="column is-narrow">
+                           <figure class="image is-128x128">
+                              <img class="is-halfround" src="https://bulma.io/images/placeholders/128x128.png" alt="Image Alt">
+                           </figure>
+                        </div>
+                        <div class="column">
+                           <h2 class="label mIngredient">Main Ingredient:</h2>
+                           <ul>
+                              <li>Ingredient 1</li>
+                           </ul>
+                           <br>
+                           <a href="">View Recipe</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
               </div>
             </div>
-            <a class="centered" href="" id="dotdRecipe">Click here for full recipe😉</a>
-            <!-- <h4 class="is-size-6"><a href="link">See the whole weeks drinks!!</a></h4> -->
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-mobile">
-        <div class="column is-6 is-offset">
-          <div class="box">
-            <h2 class="is-size-4 title">Assemble Concoction Here Friend 🧪</h2>
-            <h3 class="is-size-5">Advanced Search:</h3>
-            <div>
-              <h2 class="label mt-4" id="searchAlcoholic">Alcoholic?</h2>
-              <div class="control">
-                <label class="radio">
-                  <input type="radio" name="answer">
-                  Yes
-                </label>
-                <label class="radio">
-                  <input type="radio" name="answer">
-                  No
-                </label>
-              </div>
-
-            <div>
-              <h2 class="label mt-2" id="searchLiquor">Liquor:</h2>
-              <div class="select">
-                <select>
-                  <option>Select dropdown</option>
-                  <option>With options</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <h2 class="label mt-2" id="searchIngredient1">Ingredient 1:</h2>
-              <div class="select">
-                <select>
-                  <option>Select dropdown</option>
-                  <option>With options</option>
-                </select>
-              </div>
-            </div>   
-
-            <div>
-              <h2 class="label mt-2" id="searchIngredient2">Ingredient 2:</h2>
-              <div class="select">
-                <select>
-                  <option>Select dropdown</option>
-                  <option>With options</option>
-                </select>
-              </div>
-            </div>    
-
-            <div>
-              <h2 class="label mt-2" id="searchCategory">Category:</h2>
-              <div class="select">
-                <select>
-                  <option>Select dropdown</option>
-                  <option>With options</option>
-                </select>
-              </div>
-            </div>            
-
-            <div class="section"></div>
-
-            <button class="button is-medium is-fullwidth">Get Me Drinks</button>
-            
-          </div>
-        </div>
-        <div class="column">
-          <div class="box">
-            <div class="section has-text-centered">
-              Click the button below to try out our Random Cocktail Generator!
-            </div>
-            <figure class="image is-128x128">
-<<<<<<< Updated upstream
-              <img class="is-rounded has-text-centered" src="https://bulma.io/images/placeholders/128x128.png">
-=======
-              <img class="is-rounded has-text-centered" id="randomImage" src="https://bulma.io/images/placeholders/128x128.png">
->>>>>>> Stashed changes
-            </figure>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <script src="./assets/js/script.js"></script>
-</body>
-
+         </section>
+      </main>
+      <script src="./assets/js/script.js"></script>
+   </body>
 </html>
