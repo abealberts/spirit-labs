@@ -143,28 +143,117 @@
                           </div>
                         </div>
 
-            <div class="section"></div>
+                      </div>
 
-            <button class="button is-medium is-fullwidth">Get Me Drinks</button>
-            
-          </div>
-        </div>
-        <div class="column">
-          <div class="box">
-            <div class="section has-text-centered">
-              Click the button below to try out our Random Cocktail Generator!
-            </div>
-            <figure class="image is-128x128">
-<<<<<<< Updated upstream
-              <img class="is-rounded has-text-centered" src="https://bulma.io/images/placeholders/128x128.png">
-=======
-              <img class="is-rounded has-text-centered" id="randomImage" src="https://bulma.io/images/placeholders/128x128.png">
->>>>>>> Stashed changes
-            </figure>
+                      <!-- Search Button -->
+                      <div class="field">
+                        <div class="control">
+                          <button class="button has-background-info has-text-white is-fullwidth">Serve Drinks</button>
+                        </div>
+                      </div>
 
-          </div>
-        </div>
-      </div>
+                    </div>
+                    <h2 class="title is-4 has-text-info mt-3" id="results">Results:</h2>
+                    <div class="box clickable is-flex">
+                      <figure class="image is-64x64 mr-4">
+                        <img class="is-halfround" id="randImage" src="https://bulma.io/images/placeholders/64x64.png" alt="Image Alt">
+                     </figure>
+                     <div>
+                      <h2 class="title is-4 has-text-info">Results placeholder</h2>
+                      <h2 class="subtitle is-6">Description, ingredients, or whatever we want to display here</h2>
+                     </div>
+                    </div>
+                  </div>
+                </div>
+
+               <!-- RIGHT MAJOR COLUMN -->
+               <div class="column is-narrow" id="columnRight">
+                
+                  <!-- DRINK OF THE DAY -->
+                  <div class="box" id="dotd">
+                    <h2 class="title is-2 has-text-info">Drink of the Day 🍸</h2>
+                    <h2 class="subtitle is-6">TODAY WE'RE SERVING UP:</h2>
+
+                      <!-- DRINK CARD -->
+                      <div class="box">
+                        <h2 class="title is-4 has-text-info" id="dotdName"></h2>
+                        <div class="columns is-mobile">
+                            <div class="column is-narrow">
+                              <figure class="image is-128x128">
+                                  <img class="is-halfround" id="dotdImage" src="./assets/images/sl-logo-v1.svg" alt="Image Alt">
+                              </figure>
+                            </div>
+                            <div class="column">
+                              <h2 class="label">Ingredients:</h2>
+                              <ul>
+                                  <li id="dotdLiquor"></li>
+                                  <li id="dotdFlavor"></li>
+                                  <li id="dotdIngredient3"></li>
+                              </ul>
+                              <br>
+                              <a href="" id="dotdRecipe">Click here for full recipe😉</a>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <!-- RANDOM DRINK GENERATOR -->
+                  <div class="box">
+                    <h2 class="title is-2 has-text-info">Feeling Lucky? 🎲</h2>
+                    <h2 class="subtitle is-6">RANDOM COCKTAIL GENERATOR:</h2>
+                     <div class="content">
+                        <button class="button is-fullwidth has-background-info has-text-white" id="randButton">Quench my thirst!</button>
+                     </div>
+
+                     <!-- DRINK CARD -->
+                     <div class="box">
+                        <h2 class="title is-4 has-text-info" id="randName"></h2>
+                        <div class="columns is-mobile">
+                           <div class="column is-narrow">
+                              <figure class="image is-128x128">
+                                 <img class="is-halfround" id="randImage" src="./assets/images/sl-logo-v1.svg" alt="Image Alt">
+                              </figure>
+                           </div>
+                           <div class="column">
+                              <h2 class="label">Ingredients:</h2>
+                              <ul>
+                                 <li id="randIngredient1"></li>
+                                 <li id="randIngredient2"></li>
+                                 <li id="randIngredient3"></li>
+                              </ul>
+                              <br>
+                              <a href="">View Recipe</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Favorites -->
+                  <div class="box">
+                    <h2 class="title is-2 has-text-info">Favorites ⭐</h2>
+                    <h2 class="subtitle is-6">SAVED DRINKS WILL APPEAR HERE:</h2>
+
+                    <!-- Favorite Card(s) -->
+                    <div class="box">
+                      <h2 class="title is-4 has-text-info favName">Favorites:</h2>
+                      <div class="columns is-mobile">
+                          <div class="column is-narrow">
+                            <figure class="image is-64x64">
+                                <img class="is-halfround favImage" src="https://bulma.io/images/placeholders/128x128.png" alt="Image Alt">
+                            </figure>
+                          </div>
+                          <div class="column">
+                            <h2 class="label favIngredients">Ingredients:</h2>
+                            <ul>
+                                <li class="favIngredient1">Ingredient 1</li>
+                                <li class="favIngredient2">Ingredient 2</li>
+                            </ul>
+                            <br>
+                            <a href="">View Recipe</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
 
                   <!-- Drink Card Demo -->
                   <div class="box">
