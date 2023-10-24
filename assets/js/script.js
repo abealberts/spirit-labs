@@ -37,25 +37,24 @@ async function getDOTD() {
     
         
         function updateTime () {
-        const interval =  5 * 1000;
         
         const currentIndex = 0;
 
             $("#dotdImage").attr("src", dotdArr[currentIndex].strDrinkThumb),
-            $("#dotdName").text(dotdArr[0].strDrink),
-            $("#dotdIngredient1").text(dotdArr[0].strIngredient1),
-            $("#dotdIngredient2").text(dotdArr[0].strIngredient2),
-            $("#dotdIngredient3").text(dotdArr[0].strIngredient3),
-            $("#dotdIngredient4").text(dotdArr[0].strIngredient4),
-            $("#dotdIngredient5").text(dotdArr[0].strIngredient5),
-            $("#dotdIngredient6").text(dotdArr[0].strIngredient6),
-            $("#dotdIngredient7").text(dotdArr[0].strIngredient7)
+            $("#dotdName").text(dotdArr[currentIndex].strDrink),
+            $("#dotdIngredient1").text(dotdArr[currentIndex].strIngredient1),
+            $("#dotdIngredient2").text(dotdArr[currentIndex].strIngredient2),
+            $("#dotdIngredient3").text(dotdArr[currentIndex].strIngredient3),
+            $("#dotdIngredient4").text(dotdArr[currentIndex].strIngredient4),
+            $("#dotdIngredient5").text(dotdArr[currentIndex].strIngredient5),
+            $("#dotdIngredient6").text(dotdArr[currentIndex].strIngredient6),
+            $("#dotdIngredient7").text(dotdArr[currentIndex].strIngredient7)
 
             // increment the index or reset to 0 if it exceeds the array length
             currentIndex = (currentIndex + 1) % dotdArr.length;
 
             // set the next update to start after 5 seconds
-            setTimeout(updateTime, interval);
+            setTimeout(updateTime, 5000);
         }
         // initial content change
         updateTime();
