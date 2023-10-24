@@ -1,19 +1,19 @@
 const apiKey = "9973533"
-const requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?appid=9973533';
+const requestUrl = 'https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?';
 var resultsArr = [];
 var randomArr = [];
 var dotdArr = []
 var favoritesArr = [];
-var drinkId = "";
 
 //requestUrl changed -- add onto requestUrl in API calls
 async function searchDrinks() {
-    const response = await fetch(requestUrl + "&f=a")
+
+    const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/list.php?c=list")
     var data = await response.json();
 
     resultsArr = data.drinks;
 
-    console.log(resultsArr);
+    console.log(data);
 }
 
 async function getRandomDrink() {
@@ -21,15 +21,11 @@ async function getRandomDrink() {
     var data = await response.json();
 
     randomArr = data.drinks;
-
-    console.log(data);
 }
 
 async function fetchFavoritesData(){
     const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/search.php" + "?i=" + drinkId)
     var data = await response.json();
-
-    console.log(data);
 }
 
 async function getDOTD() {
@@ -87,5 +83,49 @@ $("#randFavoriteBtn").click(function(){
     console.log(drinkName);
 });
 
+$("#serveDrinks").click(async function(){
+
+    var liquor = $("#liquor").val();
+    var ingredient1 = $("#ingredient1").val();
+    var ingredient2 = $("#ingredient2").val();
+    var ingredientsUrl = "";
+    var liquorUrl = "";
+    var searchUrl = "";
+
+    $("#searchError").hide();
+
+    //Formats ingredients for URL
+    if (ingredient1 && ingredient2){
+        ingredientsUrl = ingredient1 + "," + ingredient2;
+    } else if (ingredient1 && !ingredient2){
+        ingredientsUrl = ingredient1;
+    } else if (!ingredient1 && ingredient2){
+        ingredientsUrl = ingredient2;
+    };
+
+    //Formats Liquor for URL
+    if (liquor && ingredientsUrl){
+        liquorUrl = liquor + ",";
+    } else if (liquor && !ingredientsUrl){
+        liquorUrl = liquor;
+    };
+
+    //Send API Request with the selected ingredients assuming at least one selection is made
+    if (!liquor && !ingredient1 && !ingredient2){
+        $("#searchError").show();
+    } else {
+        searchUrl = requestUrl + "i=" + liquorUrl + ingredientsUrl;
+
+        console.log(searchUrl);
+
+        const response = await fetch(searchUrl)
+        var data = await response.json();
+    
+        resultsArr = data.drinks;
+    
+        console.log(data);
+    };    
+;})
+
+searchDrinks()
 getDOTD();
-searchDrinks();
