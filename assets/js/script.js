@@ -40,6 +40,11 @@ $("drink").click(function randomCocktail(){
    $("#randomImage").attr("src", randomArr[rand].strDrinkThumb);
    $("#randomLiquor").text(randomArr[rand].strIngredient1);
    $("#randomFlavor").text(randomArr[rand].strIngredient2);
+   $("#randomFlavor").text(randomArr[rand].strIngredient3);
+   $("#randomFlavor").text(randomArr[rand].strIngredient4);
+   $("#randomFlavor").text(randomArr[rand].strIngredient5);
+   $("#randomFlavor").text(randomArr[rand].strIngredient6);
+   $("#randomFlavor").text(randomArr[rand].strIngredient7);
    console.log(rand);
 })
 
