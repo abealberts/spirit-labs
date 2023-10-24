@@ -29,3 +29,7 @@ html{
     background-color: rgba(64, 172, 255, 0.275);
     cursor: pointer;
 }
+
+.warning{
+    display: none;
+}
