@@ -17,35 +17,35 @@
 <body>
   <main>
 
-    <header>
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://google.com">
-            <img src="./assets/images/sl-logo-v1.svg" width="120" height="60">
-          </a>
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-            data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item">
-              Home
-            </a>
-            <a class="navbar-item">
-              About
-            </a>
-            <a class="navbar-item">
-              Favorites
-            </a>
-          </div>
-        </div>
-        </div>
-      </nav>
-    </header>
+         <header>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+               <div class="navbar-brand">
+                  <a class="navbar-item" href="https://abealberts.github.io/spirit-labs/">
+                  <img src="./assets/images/sl-logo-v1.svg" width="120" height="60">
+                  </a>
+                  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                     data-target="navbarBasicExample">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  </a>
+               </div>
+               <div id="navbarBasicExample" class="navbar-menu">
+                  <div class="navbar-start">
+                     <a class="navbar-item">
+                     Home
+                     </a>
+                     <a class="navbar-item">
+                     About
+                     </a>
+                     <a class="navbar-item">
+                     Favorites
+                     </a>
+                  </div>
+               </div>
+               </div>
+            </nav>
+         </header>
 
     <section class="section" id="mainSection">
 
@@ -232,9 +232,20 @@
                     <li id="randIngredient1"></li>
                     <li id="randIngredient2"></li>
                     <li id="randIngredient3"></li>
+                    <li id="randIngredient4"></li>
+                    <li id="randIngredient5"></li>
+                    <li id="randIngredient6"></li>
+                    <li id="randIngredient7"></li>
                   </ul>
                   <br>
-                  <a href="">View Recipe</a>
+                  <div class="field is-grouped">
+                    <div class="control">
+                      <button class="button is-info is-small">View Recipe</button>
+                    </div>
+                    <div class="control">
+                      <button class="button is-info is-light is-small" id="randFavoriteBtn">☆</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -245,28 +256,30 @@
             <h2 class="title is-2 has-text-info">Favorites ⭐</h2>
             <h2 class="subtitle is-6">SAVED DRINKS WILL APPEAR HERE:</h2>
 
-            <!-- Favorite Card(s) -->
-            <div class="box">
-              <h2 class="title is-4 has-text-info favName">Favorites:</h2>
-              <div class="columns is-mobile">
-                <div class="column is-narrow">
-                  <figure class="image is-64x64">
-                    <img class="is-halfround favImage" src="https://bulma.io/images/placeholders/128x128.png"
-                      alt="Image Alt">
-                  </figure>
-                </div>
-                <div class="column">
-                  <h2 class="label favIngredients">Ingredients:</h2>
-                  <ul>
-                    <li class="favIngredient1">Ingredient 1</li>
-                    <li class="favIngredient2">Ingredient 2</li>
-                  </ul>
-                  <br>
-                  <a href="">View Recipe</a>
-                </div>
-              </div>
-            </div>
-          </div>
+                    <!-- Favorite Card(s) -->
+                    <div id="favoritesContainer">
+                      <div class="box">
+                        <h2 class="title is-4 has-text-info favName">Favorites:</h2>
+                        <div class="columns is-mobile">
+                            <div class="column is-narrow">
+                              <figure class="image is-64x64">
+                                  <img class="is-halfround favImage" src="https://bulma.io/images/placeholders/128x128.png" alt="Image Alt">
+                              </figure>
+                            </div>
+                            <div class="column">
+                              <h2 class="label favIngredients">Ingredients:</h2>
+                              <ul>
+                                  <li class="favIngredient1"></li>
+                                  <li class="favIngredient2"></li>
+                                  <li class="favIngredient2"></li>
+                              </ul>
+                              <br>
+                              <a href="">View Recipe</a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
           <!-- Drink Card Demo -->
           <div class="box">

@@ -3,6 +3,8 @@ const requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?appid
 var resultsArr = [];
 var randomArr = [];
 var dotdArr = []
+var favoritesArr = [];
+var drinkId = "";
 
 //requestUrl changed -- add onto requestUrl in API calls
 async function searchDrinks() {
@@ -12,19 +14,23 @@ async function searchDrinks() {
     resultsArr = data.drinks;
 
     console.log(resultsArr);
-
 }
 
 async function getRandomDrink() {
-    const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php")
+    const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php");
     var data = await response.json();
 
     randomArr = data.drinks;
 
     console.log(data);
-
 }
 
+async function fetchFavoritesData(){
+    const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/search.php" + "?i=" + drinkId)
+    var data = await response.json();
+
+    console.log(data);
+}
 
 async function getDOTD() {
     // fetch gets a random drink from the api
@@ -58,12 +64,8 @@ async function getDOTD() {
         }
         // initial content change
         updateTime();
-    })  
-    
+    })
 }
-
-
-
 
 $("#randButton").click(async function () {
     await getRandomDrink();
@@ -73,9 +75,17 @@ $("#randButton").click(async function () {
     $("#randIngredient1").text(randomArr[rand].strIngredient1);
     $("#randIngredient2").text(randomArr[rand].strIngredient2);
     $("#randIngredient3").text(randomArr[rand].strIngredient3);
+    $("#randIngredient4").text(randomArr[rand].strIngredient4);
+    $("#randIngredient5").text(randomArr[rand].strIngredient5);
+    $("#randIngredient6").text(randomArr[rand].strIngredient6);
+    $("#randIngredient7").text(randomArr[rand].strIngredient7);
     console.log(rand);
+});
+
+$("#randFavoriteBtn").click(function(){
+    drinkName = $(this).parents(".box").children("#randName").text();
+    console.log(drinkName);
 });
 
 getDOTD();
 searchDrinks();
-
