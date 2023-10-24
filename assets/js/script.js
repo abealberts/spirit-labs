@@ -2,19 +2,20 @@ const apiKey = "9973533"
 const requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?appid=9973533';
 var resultsArr = [];
 var randomArr = [];
+var dotdArr = []
 
 //requestUrl changed -- add onto requestUrl in API calls
-async function searchDrinks(){
+async function searchDrinks() {
     const response = await fetch(requestUrl + "&f=a")
     var data = await response.json();
 
     resultsArr = data.drinks;
-    
+
     console.log(resultsArr);
-    dotd();
+
 }
 
-async function getRandomDrink(){
+async function getRandomDrink() {
     const response = await fetch("https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php")
     var data = await response.json();
 
@@ -24,40 +25,58 @@ async function getRandomDrink(){
 
 }
 
-function dotd(){
 
-    $("#dotdName").text(resultsArr[2].strDrink);
-    $("#dotdImage").attr("src", resultsArr[2].strDrinkThumb);
-    $("#dotdLiquor").text(resultsArr[2].strIngredient1);
-    $("#dotdFlavor").text(resultsArr[2].strIngredient2);
+async function getDOTD() {
+    // fetch gets a random drink from the api
+    const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    var data = await response.json();
 
-    console.log(resultsArr[0].strDrinkThumb);
-};
+    dotdArr = data.drinks
 
-$("#randButton").click(async function(){
+    $(document).ready(function(){
+    
+        
+        function updateTime () {
+        const interval =  5 * 1000;
+        
+        const currentIndex = 0;
+
+            $("#dotdImage").attr("src", dotdArr[currentIndex].strDrinkThumb),
+            $("#dotdName").text(dotdArr[0].strDrink),
+            $("#dotdIngredient1").text(dotdArr[0].strIngredient1),
+            $("#dotdIngredient2").text(dotdArr[0].strIngredient2),
+            $("#dotdIngredient3").text(dotdArr[0].strIngredient3),
+            $("#dotdIngredient4").text(dotdArr[0].strIngredient4),
+            $("#dotdIngredient5").text(dotdArr[0].strIngredient5),
+            $("#dotdIngredient6").text(dotdArr[0].strIngredient6),
+            $("#dotdIngredient7").text(dotdArr[0].strIngredient7)
+
+            // increment the index or reset to 0 if it exceeds the array length
+            currentIndex = (currentIndex + 1) % dotdArr.length;
+
+            // set the next update to start after 5 seconds
+            setTimeout(updateTime, interval);
+        }
+        // initial content change
+        updateTime();
+    })  
+    
+}
+
+
+
+
+$("#randButton").click(async function () {
     await getRandomDrink();
     var rand = Math.floor(Math.random() * 9);
-   $("#randImage").attr("src", randomArr[rand].strDrinkThumb);
-   $("#randName").text(randomArr[rand].strDrink);
-   $("#randIngredient1").text(randomArr[rand].strIngredient1);
-   $("#randIngredient2").text(randomArr[rand].strIngredient2);
-   $("#randIngredient3").text(randomArr[rand].strIngredient3);
-   console.log(rand);
+    $("#randImage").attr("src", randomArr[rand].strDrinkThumb);
+    $("#randName").text(randomArr[rand].strDrink);
+    $("#randIngredient1").text(randomArr[rand].strIngredient1);
+    $("#randIngredient2").text(randomArr[rand].strIngredient2);
+    $("#randIngredient3").text(randomArr[rand].strIngredient3);
+    console.log(rand);
 });
 
+getDOTD();
 searchDrinks();
 
-//SOME PSUEDO CODE FOR SEARCH FUNCTIONALITY
-// $("#searchButton").click(function(){
-//     Build api link based on each dropdowns
-
-//     endpoint url + searchAlcoholic + Liquor + etc
-
-//     if ($("#searchAlcoholic").val()){
-//         If theres a value for this dropdown, add to url
-//     }
-
-//     if ($("#searchAlcoholic").val() = No){
-//         searchLiquor = disabled
-//     }
-// })
