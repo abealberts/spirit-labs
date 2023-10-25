@@ -47,9 +47,8 @@ async function getDOTD() {
     localStorage.setItem("dotdIngredient6", dotdArr[0].strIngredient6);
     localStorage.setItem("dotdIngredient7", dotdArr[0].strIngredient7);
 
+    getExistingDOTD();
 }
-updateDOTDDaily()
-
 
 function updateDOTDDaily() {
     var updateInterval = 24 * 60 * 60 * 1000;
@@ -59,7 +58,7 @@ function updateDOTDDaily() {
     if (!lastUpdate || dayjs().diff(dayjs(lastUpdate)) >= updateInterval) {
         getDOTD();
         localStorage.setItem("dotdLastUpdate", dayjs().format());
-        getExistingDOTD();
+        
         // If it is not time to update, the existing data will remain on the page
     } else {
 
@@ -102,9 +101,42 @@ function getExistingDOTD() {
     $("#dotdIngredient5").text(displayIngredient5);
     $("#dotdIngredient6").text(displayIngredient6);
     $("#dotdIngredient7").text(displayIngredient7);
-
-
 }
+
+function generateResults(){
+
+    if($("#resultsContainer").children){
+        $("#resultsContainer").empty();
+    }
+
+    if (resultsArr == "None Found") {
+        $("#noResultsWarning").show();
+    } else{
+        $("#noResultsWarning").hide();
+        for (let i = 0; i < resultsArr.length; i++) {
+            var drinkName = resultsArr[i].strDrink;
+            var drinkThumb = resultsArr[i].strDrinkThumb;
+            console.log(drinkName + "\n" + drinkThumb);
+    
+            var cardEl = $('<div>');
+            cardEl.addClass('box is-flex clickable');
+            cardEl.appendTo($("#resultsContainer"));
+            var figureEl = $('<figure>')
+            figureEl.addClass('image is-128x128 mr-4');
+            figureEl.appendTo(cardEl);
+            var imageEl = $('<img>');
+            imageEl.addClass('is-halfround resultsImage');
+            imageEl.attr('src', drinkThumb);
+            imageEl.appendTo(figureEl);
+            var divEl = $('<div>');
+            divEl.appendTo(cardEl);
+            var titleEl = $('<h2>');
+            titleEl.addClass('title is-3 has-text-info');
+            titleEl.text(drinkName);
+            titleEl.appendTo(divEl);
+        }
+    }
+};
 
 
 $("#randButton").click(async function () {
@@ -166,11 +198,11 @@ $("#serveDrinks").click(async function () {
         var data = await response.json();
 
         resultsArr = data.drinks;
+        console.log(resultsArr);
 
-        console.log(data);
+        generateResults();
     };
-    ;
-})
+});
 
-
-searchDrinks()
+updateDOTDDaily();
+searchDrinks();
