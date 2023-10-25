@@ -36,22 +36,23 @@ async function getDOTD() {
     const dotdArr = data.drinks;
     console.log(dotdArr);
 
-    // Adds Drink of the Day data to page
-    $("#dotdImage").attr("src", dotdArr[0].strDrinkThumb);
-    $("#dotdName").text(dotdArr[0].strDrink);
-    $("#dotdIngredient1").text(dotdArr[0].strIngredient1);
-    $("#dotdIngredient2").text(dotdArr[0].strIngredient2);
-    $("#dotdIngredient3").text(dotdArr[0].strIngredient3);
-    $("#dotdIngredient4").text(dotdArr[0].strIngredient4);
-    $("#dotdIngredient5").text(dotdArr[0].strIngredient5);
-    $("#dotdIngredient6").text(dotdArr[0].strIngredient6);
-    $("#dotdIngredient7").text(dotdArr[0].strIngredient7);
+    // store data into local storage
+    localStorage.setItem("dotdName", dotdArr[0].strDrink);
+    localStorage.setItem("dotdImage", dotdArr[0].strDrinkThumb);
+    localStorage.setItem("dotdIngredient1", dotdArr[0].strIngredient1);
+    localStorage.setItem("dotdIngredient2", dotdArr[0].strIngredient2);
+    localStorage.setItem("dotdIngredient3", dotdArr[0].strIngredient3);
+    localStorage.setItem("dotdIngredient4", dotdArr[0].strIngredient4);
+    localStorage.setItem("dotdIngredient5", dotdArr[0].strIngredient5);
+    localStorage.setItem("dotdIngredient6", dotdArr[0].strIngredient6);
+    localStorage.setItem("dotdIngredient7", dotdArr[0].strIngredient7);
 
 }
 updateDOTDDaily()
 
+
 function updateDOTDDaily() {
-    var updateInterval = 10 * 1000;
+    var updateInterval = 24 * 60 * 60 * 1000;
     var lastUpdate = localStorage.getItem("dotdLastUpdate")
 
     // Updates time for the Drink of the Day
@@ -82,16 +83,27 @@ function getExistingDOTD() {
     const dotdIngredient6 = localStorage.getItem("dotdIngredient6");
     const dotdIngredient7 = localStorage.getItem("dotdIngredient7");
 
+    // Checks each value and replace null with an empty string
+    const displayIngredient1 = dotdIngredient1 !== "null" ? dotdIngredient1 : "";
+    const displayIngredient2 = dotdIngredient2 !== "null" ? dotdIngredient2 : "";
+    const displayIngredient3 = dotdIngredient3 !== "null" ? dotdIngredient3 : "";
+    const displayIngredient4 = dotdIngredient4 !== "null" ? dotdIngredient4 : "";
+    const displayIngredient5 = dotdIngredient5 !== "null" ? dotdIngredient5 : "";
+    const displayIngredient6 = dotdIngredient6 !== "null" ? dotdIngredient6 : "";
+    const displayIngredient7 = dotdIngredient7 !== "null" ? dotdIngredient7 : "";
+
     // Updates the HTML with the stored data 
-    $("#dotdImage").attr(dotdImage);
+    $("#dotdImage").attr("src", dotdImage);
     $("#dotdName").text(dotdName);
-    $("#dotdIngredient1").text(dotdIngredient1);
-    $("#dotdIngredient2").text(dotdIngredient2);
-    $("#dotdIngredient3").text(dotdIngredient3);
-    $("#dotdIngredient4").text(dotdIngredient4);
-    $("#dotdIngredient5").text(dotdIngredient5);
-    $("#dotdIngredient6").text(dotdIngredient6);
-    $("#dotdIngredient7").text(dotdIngredient7);
+    $("#dotdIngredient1").text(displayIngredient1);
+    $("#dotdIngredient2").text(displayIngredient2);
+    $("#dotdIngredient3").text(displayIngredient3);
+    $("#dotdIngredient4").text(displayIngredient4);
+    $("#dotdIngredient5").text(displayIngredient5);
+    $("#dotdIngredient6").text(displayIngredient6);
+    $("#dotdIngredient7").text(displayIngredient7);
+
+
 }
 
 
