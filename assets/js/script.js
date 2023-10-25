@@ -59,7 +59,7 @@ function updateDOTDDaily() {
     if (!lastUpdate || dayjs().diff(dayjs(lastUpdate)) >= updateInterval) {
         getDOTD();
         localStorage.setItem("dotdLastUpdate", dayjs().format());
-
+        getExistingDOTD();
         // If it is not time to update, the existing data will remain on the page
     } else {
 
